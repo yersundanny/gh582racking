@@ -9,65 +9,82 @@
         :root {
             --ikea-blue: #0058a3;
             --ikea-yellow: #ffdb00;
+            --text-black: #111111;
+            --text-gray: #484848;
         }
 
         body {
             font-family: 'Noto Sans KR', sans-serif;
             background-color: #ffffff;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             letter-spacing: -0.02em;
+            color: var(--text-black);
         }
 
+        /* 헤더 섹션 */
         .header {
             text-align: center;
-            margin-bottom: 40px;
-            margin-top: 20px;
+            padding: 60px 20px 40px;
+            max-width: 800px;
         }
 
         .header h1 {
-            font-size: 2.2rem;
-            color: #111;
-            margin-bottom: 10px;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin: 0 0 15px 0;
+            letter-spacing: -0.04em;
         }
 
         .header p {
-            font-size: 1rem;
-            color: #484848;
+            font-size: 1.15rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin: 0;
         }
 
-        /* 기본 컨테이너 (PC 버전: 카드 레이아웃) */
+        /* 컨테이너 레이아웃 (기본: PC 카드형) */
         .container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            max-width: 1100px;
-            width: 100%;
+            gap: 25px;
+            max-width: 1200px;
+            width: 90%;
+            padding-bottom: 60px;
         }
 
         .card {
             background: #fff;
             border-radius: 4px;
             overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
             text-decoration: none;
-            color: #111;
+            color: inherit;
             display: flex;
             flex-direction: column;
-            border: 1px solid #eee;
+            transition: all 0.2s ease-in-out;
+            border: 1px solid #f1f1f1;
         }
 
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            background-color: #f9f9f9;
+        }
+
+        /* 카드 이미지 영역 */
         .image-box {
-            height: 150px;
+            height: 160px;
             background-size: cover;
             background-position: center;
+            background-color: #eee;
         }
 
+        /* 카드 텍스트 영역 */
         .content {
-            padding: 20px;
+            padding: 24px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -75,63 +92,69 @@
         }
 
         .content h3 {
-            margin: 0 0 15px 0;
-            font-size: 1.1rem;
+            margin: 0 0 20px 0;
+            font-size: 1.2rem;
             font-weight: 700;
+            line-height: 1.3;
         }
 
         .arrow-btn {
-            width: 35px;
-            height: 35px;
+            width: 40px;
+            height: 40px;
             background: var(--ikea-blue);
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
+            font-size: 1.2rem;
         }
 
-        /* 모바일 버전: 아주 심플한 목록 형태 */
+        /* [심플 모바일 버전 UI] */
         @media (max-width: 768px) {
-            .header h1 { font-size: 1.6rem; }
+            .header { padding: 40px 20px 30px; }
+            .header h1 { font-size: 2rem; }
             
             .container {
                 display: flex;
                 flex-direction: column;
                 gap: 0;
-                border-top: 1px solid #eee;
+                width: 100%;
+                border-top: 1px solid #e5e5e5;
             }
 
             .card {
                 flex-direction: row;
-                align-items: center;
                 border: none;
-                border-bottom: 1px solid #eee;
+                border-bottom: 1px solid #e5e5e5;
                 border-radius: 0;
                 box-shadow: none;
-                padding: 15px 5px;
+                padding: 5px 10px;
             }
 
-            .image-box { display: none; } /* 이미지 숨김 */
+            .card:hover { background-color: #f5f5f5; }
+
+            .image-box { display: none; } /* 모바일에서는 이미지 제거 */
             
             .content {
-                padding: 0;
                 flex-direction: row;
                 align-items: center;
+                justify-content: space-between;
                 width: 100%;
+                padding: 20px 15px;
             }
 
             .content h3 {
                 margin: 0;
-                font-size: 1.05rem;
-                font-weight: 400;
+                font-size: 1.1rem;
+                font-weight: 400; /* 모바일은 더 심플한 굵기 */
             }
 
             .arrow-btn {
                 background: none;
-                color: #ccc;
-                font-size: 1.2rem;
+                color: #ccc; /* 심플한 회색 화살표 */
+                width: auto;
+                height: auto;
             }
         }
     </style>
@@ -140,35 +163,35 @@
 
     <div class="header">
         <h1>GH582 Racking Training</h1>
-        <p>이케아 기흥점 랙킹 트레이닝 센터에 오신여러분 환영합니다.</p>
+        <p>이케아 기흥점 랙킹 가이드</p>
     </div>
 
     <div class="container">
-        <a href="#" id="video-link" class="card">
+        <a href="#" id="dynamic-video-link" class="card">
             <div class="image-box" style="background-image: url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=500&q=80');"></div>
             <div class="content">
-                <h3>조립설명 영상</h3>
+                <h3>조립설명 영상 가이드</h3>
                 <div class="arrow-btn">➔</div>
             </div>
         </a>
 
-        <a href="안전교육_파일경로.pdf" class="card">
+        <a href="Racking Storage Safety Manual.pdf" class="card" target="_blank">
             <div class="image-box" style="background-image: url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=500&q=80');"></div>
             <div class="content">
-                <h3>안전교육 PDF</h3>
+                <h3>필수 안전교육 PDF</h3>
                 <div class="arrow-btn">➔</div>
             </div>
         </a>
 
-        <a href="재고현황_주소" class="card">
+        <a href="#" class="card">
             <div class="image-box" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=500&q=80');"></div>
             <div class="content">
-                <h3>재고현황</h3>
+                <h3>실시간 재고현황</h3>
                 <div class="arrow-btn">➔</div>
             </div>
         </a>
 
-        <a href="비교페이지_주소" class="card">
+        <a href="#" class="card">
             <div class="image-box" style="background-image: url('https://images.unsplash.com/photo-1454165833267-028ec2806af2?auto=format&fit=crop&w=500&q=80');"></div>
             <div class="content">
                 <h3>Old vs New Comparison</h3>
@@ -176,29 +199,31 @@
             </div>
         </a>
 
-        <a href="매뉴얼모음_주소" class="card">
+        <a href="#" class="card">
             <div class="image-box" style="background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=500&q=80');"></div>
             <div class="content">
-                <h3>매뉴얼 PDF 모음</h3>
+                <h3>매뉴얼 PDF 자료실</h3>
                 <div class="arrow-btn">➔</div>
             </div>
         </a>
     </div>
 
     <script>
-        // 접속 기기에 따른 유튜브 링크 설정
-        const pcLink = "https://www.youtube.com/playlist?list=PLn2hkf3EgnF3PQYhgiJzIymmjHNIgSLUG";
-        const mobileLink = "https://www.youtube.com/playlist?list=PLn2hkf3EgnF3mg96oXucuWJ1jWOnXZm77";
+        /**
+         * 기기별 유튜브 플레이리스트 링크 전환 스크립트
+         */
+        const pcPlaylist = "https://www.youtube.com/playlist?list=PLn2hkf3EgnF3PQYhgiJzIymmjHNIgSLUG";
+        const mobilePlaylist = "https://www.youtube.com/playlist?list=PLn2hkf3EgnF3mg96oXucuWJ1jWOnXZm77";
         
-        const videoElement = document.getElementById('video-link');
+        const videoLinkElement = document.getElementById('dynamic-video-link');
         
-        // 모바일 기기인지 체크 (User Agent 판별)
-        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        // 모바일 기기 여부 판단
+        const isMobileDevice = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
         
-        if (isMobile) {
-            videoElement.href = mobileLink;
+        if (isMobileDevice) {
+            videoLinkElement.href = mobilePlaylist;
         } else {
-            videoElement.href = pcLink;
+            videoLinkElement.href = pcPlaylist;
         }
     </script>
 
