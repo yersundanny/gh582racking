@@ -38,7 +38,8 @@
     <header class="pt-24 pb-16 px-6 max-w-6xl mx-auto text-center">
         <h1 class="text-4xl md:text-5xl font-bold mb-8 text-gray-900 tracking-tight italic">STO 582 Racking Archive</h1>
         <p class="text-gray-600 text-lg leading-relaxed max-w-4xl mx-auto px-4">
-            이케아 코워커를 위한 랙킹 가이드: 필수 문서와 노하우를 한곳에서 확인하세요.
+            이케아 코워커를 위한 랙킹 가이드: 필수 문서와 노하우를 한곳에서 확인하세요.<br>
+            <span class="text-sm text-gray-400">Racking Guide for IKEA Coworkers: Find essential documents and know-how in one place.</span>
         </p>
     </header>
 
@@ -50,7 +51,10 @@
                     <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=500" class="w-full h-full object-cover" alt="Manual Archive">
                 </div>
                 <div class="p-10 flex flex-col justify-between flex-grow content-wrapper">
-                    <h3 class="text-xl font-bold mb-10 text-gray-800 text-left">Manual Archive</h3>
+                    <h3 class="text-xl font-bold mb-10 text-gray-800 text-left">
+                        Manual Archive<br>
+                        <span class="text-sm font-normal text-gray-500">매뉴얼 모음</span>
+                    </h3>
                     <div class="arrow-btn"><i class="fas fa-arrow-right"></i></div>
                 </div>
             </div>
@@ -60,7 +64,10 @@
                     <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=500" class="w-full h-full object-cover" alt="Assembly Guide">
                 </div>
                 <div class="p-10 flex flex-col justify-between flex-grow content-wrapper">
-                    <h3 class="text-xl font-bold mb-10 text-gray-800 text-left">Assembly Guide</h3>
+                    <h3 class="text-xl font-bold mb-10 text-gray-800 text-left">
+                        Assembly Guide<br>
+                        <span class="text-sm font-normal text-gray-500">조립 가이드 영상</span>
+                    </h3>
                     <div class="arrow-btn"><i class="fas fa-play"></i></div>
                 </div>
             </div>
@@ -70,7 +77,10 @@
                     <img src="https://images.unsplash.com/photo-1590644365607-1c5a519a7a37?auto=format&fit=crop&w=500" class="w-full h-full object-cover" alt="Safety Education">
                 </div>
                 <div class="p-10 flex flex-col justify-between flex-grow content-wrapper">
-                    <h3 class="text-xl font-bold mb-10 text-gray-800 text-left">Safety Education</h3>
+                    <h3 class="text-xl font-bold mb-10 text-gray-800 text-left">
+                        Safety Education<br>
+                        <span class="text-sm font-normal text-gray-500">안전 교육 센터</span>
+                    </h3>
                     <div class="arrow-btn"><i class="fas fa-arrow-right"></i></div>
                 </div>
             </div>
@@ -80,7 +90,10 @@
                     <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=500" class="w-full h-full object-cover" alt="Old vs New">
                 </div>
                 <div class="p-10 flex flex-col justify-between flex-grow bg-black text-white content-wrapper">
-                    <h3 class="text-xl font-bold mb-10 text-left">Old vs New<br>Comparison</h3>
+                    <h3 class="text-xl font-bold mb-10 text-left">
+                        Old vs New<br>
+                        <span class="text-sm font-normal text-gray-400">신규/구형 비교</span>
+                    </h3>
                     <div class="arrow-btn bg-white text-black"><i class="fas fa-arrow-right text-black"></i></div>
                 </div>
             </div>
@@ -90,15 +103,18 @@
 
     <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-60 z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-xl max-w-sm w-full p-8 shadow-2xl transform transition-all scale-95 opacity-0" id="modalContent">
-            <h2 class="text-2xl font-bold mb-6 text-center text-gray-900">영상 버전을 선택하세요</h2>
+            <h2 class="text-2xl font-bold mb-6 text-center text-gray-900">
+                영상 버전을 선택하세요<br>
+                <span class="text-sm font-normal text-gray-500 uppercase tracking-tight">Select Video Version</span>
+            </h2>
             <div class="flex flex-col gap-4">
                 <a href="https://www.youtube.com/playlist?list=PLn2hkf3EgnF3PQYhgiJzIymmjHNIgSLUG" target="_blank" onclick="closeVideoModal()" class="w-full py-4 bg-gray-100 hover:bg-gray-200 text-black font-bold rounded-lg text-center transition-colors">
-                    🖥️ PC 버전 (가로 영상)
+                    🖥️ PC 버전 (Landscape)
                 </a>
                 <a href="https://www.youtube.com/playlist?list=PLn2hkf3EgnF3mg96oXucuWJ1jWOnXZm77" target="_blank" onclick="closeVideoModal()" class="w-full py-4 bg-gray-100 hover:bg-gray-200 text-black font-bold rounded-lg text-center transition-colors">
-                    📱 모바일 버전 (세로 영상)
+                    📱 모바일 버전 (Portrait)
                 </a>
-                <button onclick="closeVideoModal()" class="mt-4 text-gray-400 hover:text-gray-600 text-sm font-medium">닫기</button>
+                <button onclick="closeVideoModal()" class="mt-4 text-gray-400 hover:text-gray-600 text-sm font-medium">닫기 (Close)</button>
             </div>
         </div>
     </div>
