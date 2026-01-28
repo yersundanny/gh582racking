@@ -3,76 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>상세 안전 수칙 - IKEA Racking</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <title>상세 안전 수칙 - STO 582 Racking Archive</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Prusa 지식 베이스 스타일 재현 */
-        body { font-family: 'Noto Sans KR', sans-serif; line-height: 1.7; color: #333; margin: 0; }
-        .breadcrumb { padding: 15px 10%; background: #f8f8f8; font-size: 0.9rem; color: #666; }
-        .container { display: flex; max-width: 1100px; margin: 0 auto; padding: 40px 20px; gap: 40px; }
-        .main-content { flex: 3; }
-        h1 { font-size: 2.2rem; color: #111; margin-bottom: 10px; }
-        .relevant { margin-bottom: 20px; }
-        .badge { background: #e1e1e1; padding: 4px 10px; border-radius: 3px; font-size: 0.8rem; font-weight: bold; margin-right: 5px; }
-        hr { border: 0; border-top: 4px solid #0058a3; margin: 20px 0 40px; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Noto+Sans+KR:wght@400;700&display=swap');
+        body { font-family: 'Inter', 'Noto Sans KR', sans-serif; line-height: 1.7; color: #333; }
         
-        /* 중요 공지 박스 */
-        .alert { background: #fff4f4; border-left: 5px solid #d93025; padding: 20px; margin: 25px 0; }
+        /* 브레드크럼 스타일 */
+        .breadcrumb { background: #f8f8f8; padding: 15px 10%; font-size: 0.9rem; color: #666; display: flex; align-items: center; gap: 8px; }
+        .breadcrumb a { text-decoration: none; color: #666; transition: color 0.2s; }
+        .breadcrumb a:hover { color: #0058a3; }
+
+        .container-box { display: flex; max-width: 1100px; margin: 0 auto; padding: 40px 20px; gap: 40px; }
+        .main-article { flex: 3; }
+        
+        /* Prusa 스타일 가로 구분선 */
+        hr.accent-line { border: 0; border-top: 4px solid #0058a3; margin: 20px 0 40px; }
+        
+        .badge { background: #e1e1e1; padding: 4px 10px; border-radius: 3px; font-size: 0.8rem; font-weight: bold; margin-right: 5px; }
+        
+        /* 경고 박스 */
+        .alert-panel { background: #fff4f4; border-left: 5px solid #d93025; padding: 20px; margin: 25px 0; display: flex; gap: 15px; }
         
         /* 사이드바 목차 */
-        .sidebar { flex: 1; position: sticky; top: 20px; height: fit-content; border-left: 1px solid #eee; padding-left: 20px; }
-        .sidebar h4 { font-size: 0.8rem; color: #999; text-transform: uppercase; margin-top: 0; }
-        .sidebar ul { list-style: none; padding: 0; }
-        .sidebar li { margin-bottom: 10px; }
-        .sidebar a { text-decoration: none; color: #0058a3; font-size: 0.9rem; }
-        
-        @media (max-width: 800px) { .container { flex-direction: column; } .sidebar { display: none; } }
+        .sidebar-nav { flex: 1; position: sticky; top: 20px; height: fit-content; border-left: 1px solid #eee; padding-left: 20px; }
+        .sidebar-nav h4 { font-size: 0.75rem; color: #999; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 0.05em; }
+        .sidebar-nav ul { list-style: none; padding: 0; }
+        .sidebar-nav li { margin-bottom: 10px; }
+        .sidebar-nav a { text-decoration: none; color: #0058a3; font-size: 0.9rem; transition: color 0.2s; }
+        .sidebar-nav a:hover { color: #111; text-decoration: underline; }
+
+        @media (max-width: 850px) { .container-box { flex-direction: column; } .sidebar-nav { border-left: none; padding-left: 0; border-top: 1px solid #eee; padding-top: 20px; } }
     </style>
 </head>
 <body>
 
-<div class="breadcrumb">🏠 > 안전교육 센터 > 상세 수칙</div>
+    <nav class="breadcrumb">
+        <a href="index.html"><i class="fas fa-home"></i></a> 
+        <span>&gt;</span> 
+        <a href="safety-main.html">안전교육 센터</a> 
+        <span>&gt;</span> 
+        <span class="font-bold">상세 수칙</span>
+    </nav>
 
-<div class="container">
-    <article class="main-content">
-        <h1>디스플레이 스탠드 안전 수칙</h1>
-        
-        <div class="relevant">
-            <span class="badge">Sales Floor</span>
-            <span class="badge">Display Only</span>
-        </div>
+    <div class="container-box">
+        <article class="main-article">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">디스플레이 스탠드 안전 수칙</h1>
+            
+            <div class="flex gap-2 mb-6">
+                <span class="badge">Sales Floor</span>
+                <span class="badge">Display Only</span>
+            </div>
 
-        <p style="color: #999; font-size: 0.8rem;">최종 업데이트: 2026.01.22</p>
-        <hr>
+            <p class="text-gray-400 text-sm mb-4">Last updated: January 2026 • 작성자: Yousun</p>
+            <hr class="accent-line">
 
-        <p>이 페이지는 <strong>디스플레이 스탠드</strong>의 올바른 조립 및 유지보수 안전 수칙을 다룹니다.</p>
+            <p class="mb-6 text-lg">디스플레이 스탠드의 올바른 조립 및 유지보수 수칙입니다. 코워커의 안전을 위해 아래 내용을 반드시 숙지해 주세요.</p>
 
-        <div class="alert">
-            <strong>⚠️ 경고: 전도 사고 주의</strong><br>
-            스탠드 상단에 무거운 제품을 전시하지 마십시오. 반드시 바닥 고정 장치(Floor Fixing) 상태를 확인해야 합니다.
-        </div>
+            <div class="alert-panel">
+                <div class="text-red-600 text-xl"><i class="fas fa-exclamation-triangle"></i></div>
+                <div>
+                    <strong class="text-red-700">중요: 전도 사고 방지</strong><br>
+                    상단 하중 집중을 피하고, 반드시 바닥 고정 장치(Floor Fixing)가 체결되어 있는지 확인하십시오.
+                </div>
+            </div>
 
-        <h2 id="sec1">1. 조립 전 확인 사항</h2>
-        <p>모든 부품이 손상 없이 도착했는지 확인하고, 바닥 수평을 먼저 맞추어야 합니다.</p>
+            <h2 id="sec1" class="text-2xl font-bold mt-10 mb-4">1. 조립 전 점검</h2>
+            <p class="mb-6">모든 부품의 휘어짐이나 도장 파손 여부를 확인하십시오. 특히 수평 조절 나사(Leveling foot)의 상태가 양호해야 합니다.</p>
 
-        <h2 id="sec2">2. 최대 적재 하중</h2>
-        <p>각 선반당 최대 하중은 15kg이며, 이를 초과할 시 프레임 변형이 발생할 수 있습니다.</p>
+            <h2 id="sec2" class="text-2xl font-bold mt-10 mb-4">2. 적재 한계</h2>
+            <p class="mb-6">단위 선반당 허용 하중은 최대 15kg입니다. 하중 표시 스티커가 코워커와 고객에게 잘 보이는지 확인하십시오.</p>
 
-        <h2 id="sec3">3. 정기 유지보수</h2>
-        <p>주 1회 연결 부위의 나사가 풀리지 않았는지 육안 점검을 실시하십시오.</p>
-    </article>
+            <h2 id="sec3" class="text-2xl font-bold mt-10 mb-4">3. 정기 유지보수</h2>
+            <p class="mb-6">매주 월요일 작업 개시 전, 연결 볼트의 조임 상태를 육안으로 점검하고 이상 발생 시 즉시 보고하십시오.</p>
+        </article>
 
-    <aside class="sidebar">
-        <h4>Contents</h4>
-        <ul>
-            <li><a href="#sec1">1. 조립 전 확인</a></li>
-            <li><a href="#sec2">2. 적재 하중</a></li>
-            <li><a href="#sec3">3. 유지보수</a></li>
-        </ul>
-        <br>
-        <a href="safety-main.html" style="font-weight: bold;">⬅ 메인으로 돌아가기</a>
-    </aside>
-</div>
+        <aside class="sidebar-nav">
+            <h4>Contents</h4>
+            <ul>
+                <li><a href="#sec1">1. 조립 전 점검</a></li>
+                <li><a href="#sec2">2. 적재 한계</a></li>
+                <li><a href="#sec3">3. 유지보수</a></li>
+            </ul>
+            <div class="mt-12 pt-6 border-t border-gray-100">
+                <a href="safety-main.html" class="text-black font-bold flex align-items-center gap-2">
+                    <i class="fas fa-chevron-left mt-1"></i> 메인으로 돌아가기
+                </a>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="py-10 text-center text-gray-400 text-sm">
+        <p>© 2026 STO 582 Racking Archive.</p>
+    </footer>
 
 </body>
 </html>
