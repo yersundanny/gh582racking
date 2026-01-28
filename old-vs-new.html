@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Old vs New Comparison - STO 582 Racking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Noto+Sans+KR:wght@400;700&display=swap');
+        body { font-family: 'Inter', 'Noto Sans KR', sans-serif; background-color: #fff; color: #333; line-height: 1.7; }
+        
+        /* 브레드크럼 스타일 */
+        .breadcrumb { background: #f8f8f8; padding: 15px 10%; font-size: 0.9rem; color: #666; display: flex; align-items: center; gap: 8px; }
+        .breadcrumb a:hover { color: #0058a3; }
+
+        .container-box { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        
+        /* 중앙 구분선 스타일 */
+        .vs-divider {
+            position: relative;
+        }
+        .vs-divider::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background-color: #eee;
+            transform: translateX(-50%);
+        }
+
+        .compare-card { background: #fff; border: 1px solid #f1f1f1; border-radius: 8px; overflow: hidden; margin-bottom: 30px; transition: shadow 0.3s; }
+        .compare-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .image-area { height: 240px; background-color: #f9f9f9; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .image-area img { width: 100%; height: 100%; object-cover: cover; }
+        .content-area { padding: 20px; }
+
+        @media (max-width: 768px) {
+            .vs-divider::after { display: none; }
+            .grid-cols-2 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="breadcrumb">
+        <a href="index.html"><i class="fas fa-home"></i></a> 
+        <span>&gt;</span> 
+        <span class="font-bold text-gray-900">신규/구형 비교 (Old vs New Comparison)</span>
+    </nav>
+
+    <div class="container-box">
+        <header class="mb-12">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4 tracking-tight">Old vs New Comparison</h1>
+            <p class="text-gray-500">랙킹 시스템의 변경 사항을 한눈에 비교하고 최신 기준을 확인하세요.</p>
+            <hr class="border-t-4 border-[#0058a3] w-20 mt-6">
+        </header>
+
+        <div class="grid grid-cols-2 gap-12 vs-divider relative">
+            
+            <div class="space-y-8">
+                <div class="text-center mb-10">
+                    <span class="px-6 py-2 bg-gray-100 text-gray-400 font-bold rounded-full uppercase tracking-widest text-sm">Old System</span>
+                </div>
+
+                <div class="compare-card">
+                    <div class="image-area">
+                        <img src="https://images.unsplash.com/photo-1587293855946-9021e6359419?auto=format&fit=crop&w=500" alt="Old Racking 1">
+                    </div>
+                    <div class="content-area">
+                        <h3 class="font-bold text-lg mb-2 text-gray-400 italic text-left">Previous Standard A</h3>
+                        <p class="text-sm text-gray-500 text-left">구형 랙킹의 적재 방식 및 체결 구조에 대한 설명입니다. 안전 핀 규격이 현재와 다릅니다.</p>
+                    </div>
+                </div>
+
+                <div class="compare-card">
+                    <div class="image-area">
+                        <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=500" alt="Old Racking 2">
+                    </div>
+                    <div class="content-area text-left">
+                        <h3 class="font-bold text-lg mb-2 text-gray-400 italic">Previous Layout B</h3>
+                        <p class="text-sm text-gray-500">과거에 사용되던 바닥 고정 방식 및 통로 간격 기준입니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-8">
+                <div class="text-center mb-10">
+                    <span class="px-6 py-2 bg-indigo-50 text-indigo-600 font-bold rounded-full uppercase tracking-widest text-sm">New Standard</span>
+                </div>
+
+                <div class="compare-card border-[#0058a3]">
+                    <div class="image-area">
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=500" alt="New Racking 1">
+                    </div>
+                    <div class="content-area text-left">
+                        <h3 class="font-bold text-lg mb-2 text-indigo-700">Current Standard A</h3>
+                        <p class="text-sm text-gray-600">개선된 신규 랙킹 시스템입니다. 강화된 안전핀과 수평 조절 나사가 적용되었습니다.</p>
+                    </div>
+                </div>
+
+                <div class="compare-card border-[#0058a3]">
+                    <div class="image-area">
+                        <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=500" alt="New Racking 2">
+                    </div>
+                    <div class="content-area text-left">
+                        <h3 class="font-bold text-lg mb-2 text-indigo-700">Current Layout B</h3>
+                        <p class="text-sm text-gray-600">글로벌 표준에 맞춘 새로운 통로 간격 및 전도 방지 지침입니다.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-20 text-center">
+            <a href="index.html" class="inline-flex items-center gap-2 text-gray-500 font-bold hover:text-black transition-colors">
+                <i class="fas fa-arrow-left"></i> 메인 아카이브로 돌아가기 (Back to Main)
+            </a>
+        </div>
+    </div>
+
+    <footer class="py-16 text-center text-gray-400 text-xs">
+        <p>© 2026 STO 582 Racking Archive. Old vs New Comparison Module.</p>
+    </footer>
+
+</body>
+</html>
