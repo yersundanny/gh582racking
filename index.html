@@ -8,96 +8,203 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Noto+Sans+KR:wght@400;700&display=swap');
-        body { font-family: 'Inter', 'Noto Sans KR', sans-serif; background-color: white; letter-spacing: -0.02em; }
-        .arrow-btn { width: 44px; height: 44px; background-color: #111; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; transition: 0.3s; }
-        .card-container { transition: 0.3s; height: 100%; display: flex; flex-direction: column; cursor: pointer; border: 1px solid #eee; }
-        .card-container:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        
+        body { font-family: 'Inter', 'Noto Sans KR', sans-serif; background-color: #fafafa; letter-spacing: -0.02em; }
+        
+        /* 카드 공통 스타일 */
+        .card-container { 
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+            height: 100%; 
+            display: flex; 
+            flex-direction: column; 
+            cursor: pointer; 
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .card-container:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: #0058a3;
+        }
 
+        /* 아이콘 영역 스타일 */
+        .icon-wrapper {
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            background-color: #f8fafc;
+            transition: all 0.3s ease;
+        }
+        
+        .card-container:hover .icon-wrapper {
+            background-color: #0058a3;
+            color: #ffdb00;
+        }
+
+        .arrow-btn {
+            width: 40px; height: 40px;
+            background-color: #f1f5f9; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: #64748b; transition: all 0.3s ease;
+        }
+        
+        .card-container:hover .arrow-btn {
+            background-color: #ffdb00;
+            color: #0058a3;
+            transform: rotate(-45deg);
+        }
+
+        /* 모바일 리스트 모드 */
         @media (max-width: 768px) {
-            .grid-layout { display: flex; flex-direction: column; gap: 0; border-top: 1px solid #eee; }
-            .card-container { border: none !important; border-bottom: 1px solid #eee !important; border-radius: 0; flex-direction: row !important; height: auto; padding: 10px 0; }
-            .image-wrapper { display: none; }
-            .content-wrapper { padding: 15px !important; flex-direction: row !important; justify-content: space-between; align-items: center; width: 100%; background: transparent !important; color: #111 !important; }
-            .content-wrapper h3 { margin-bottom: 0 !important; font-size: 1.1rem; font-weight: 400; }
-            .arrow-btn { background: none !important; color: #ccc !important; width: auto; height: auto; }
+            .grid-layout { display: flex; flex-direction: column; gap: 12px; padding: 0 16px; }
+            .card-container { flex-direction: row !important; height: auto; align-items: center; }
+            .icon-wrapper { height: 80px; width: 80px; font-size: 1.8rem; flex-shrink: 0; }
+            .content-wrapper { padding: 16px !important; flex-grow: 1; display: flex; justify-content: space-between; align-items: center; }
+            .content-wrapper h3 { margin-bottom: 0 !important; font-size: 1rem; }
+            .arrow-btn { width: 32px; height: 32px; }
         }
     </style>
 </head>
 <body>
 
-    <header class="pt-24 pb-16 px-6 max-w-6xl mx-auto text-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-8 text-gray-900 tracking-tight italic">STO 582 Racking Archive</h1>
-        <p class="text-gray-600 text-lg leading-relaxed max-w-4xl mx-auto px-4">
-            이케아 코워커를 위한 랙킹 가이드: 필수 문서와 노하우를 한곳에서 확인하세요.<br>
-            <span class="text-sm text-gray-400">Racking Guide for IKEA Coworkers: Find essential documents and know-how in one place.</span>
+    <header class="pt-20 pb-12 px-6 max-w-6xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-gray-900 tracking-tight italic">STO 582 Racking Archive</h1>
+        <p class="text-gray-500 text-lg leading-relaxed max-w-2xl mx-auto">
+            이케아 코워커를 위한 랙킹 통합 가이드 센터<br>
+            <span class="text-sm font-medium text-gray-400 uppercase tracking-widest">Digital Hub for Racking Specialists</span>
         </p>
     </header>
 
-    <section class="bg-[#f4f4f4] py-20 px-6">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 grid-layout">
+    <section class="py-12">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 grid-layout">
             
-            <div class="card-container bg-white shadow-sm" onclick="location.href='manuals-list.html'">
-                <div class="h-64 bg-gray-200 overflow-hidden image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=500" class="w-full h-full object-cover" alt="Manual Archive">
+            <div class="card-container" onclick="location.href='manuals-list.html'">
+                <div class="icon-wrapper text-blue-600">
+                    <i class="fas fa-folder-open"></i>
                 </div>
-                <div class="p-10 flex flex-col justify-between flex-grow content-wrapper">
-                    <h3 class="text-xl font-bold mb-10 text-gray-800">Manual Archive<br><span class="text-sm font-normal text-gray-500">매뉴얼 모음</span></h3>
+                <div class="p-8 content-wrapper">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800">Manual Archive</h3>
+                        <p class="text-sm text-gray-500 mt-1 font-medium">매뉴얼 모음</p>
+                    </div>
                     <div class="arrow-btn"><i class="fas fa-arrow-right"></i></div>
                 </div>
             </div>
 
-            <div class="card-container bg-white shadow-sm" onclick="openVideoModal()">
-                <div class="h-64 bg-gray-200 overflow-hidden image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=500" class="w-full h-full object-cover" alt="Assembly Guide">
+            <div class="card-container" onclick="openVideoModal()">
+                <div class="icon-wrapper text-red-500">
+                    <i class="fas fa-play-circle"></i>
                 </div>
-                <div class="p-10 flex flex-col justify-between flex-grow content-wrapper">
-                    <h3 class="text-xl font-bold mb-10 text-gray-800">Assembly Guide<br><span class="text-sm font-normal text-gray-500">조립 가이드 영상</span></h3>
-                    <div class="arrow-btn"><i class="fas fa-play"></i></div>
-                </div>
-            </div>
-
-            <div class="card-container bg-white shadow-sm" onclick="location.href='location-guide.html'">
-                <div class="h-64 bg-gray-200 overflow-hidden image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=500" class="w-full h-full object-cover" alt="Location">
-                </div>
-                <div class="p-10 flex flex-col justify-between flex-grow content-wrapper">
-                    <h3 class="text-xl font-bold mb-10 text-gray-800 text-left">Racking Location Guide<br><span class="text-sm font-normal text-gray-500">랙킹 위치 안내</span></h3>
-                    <div class="arrow-btn"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="p-8 content-wrapper">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800">Assembly Guide</h3>
+                        <p class="text-sm text-gray-500 mt-1 font-medium">조립 가이드 영상</p>
+                    </div>
+                    <div class="arrow-btn"><i class="fas fa-arrow-right"></i></div>
                 </div>
             </div>
 
-            <div class="card-container bg-white shadow-sm" onclick="window.open('https://docs.google.com/spreadsheets/d/e/2PACX-1vS8K4qcRhrjAWltpEoweWyh612n-ZxOUg1xb170ynA1ArlL0qJBQv0bQ6Ow-zUgDTC80OCXbJ3QIHfo/pubhtml?gid=2004724448&single=true', '_blank')">
-                <div class="h-64 bg-gray-200 overflow-hidden image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=500" class="w-full h-full object-cover" alt="Stock">
+            <div class="card-container" onclick="location.href='location-guide.html'">
+                <div class="icon-wrapper text-green-600">
+                    <i class="fas fa-map-marked-alt"></i>
                 </div>
-                <div class="p-10 flex flex-col justify-between flex-grow content-wrapper">
-                    <h3 class="text-xl font-bold mb-10 text-gray-800 text-left">Racking Stock Check<br><span class="text-sm font-normal text-gray-500">랙킹 재고 확인 (Live)</span></h3>
-                    <div class="arrow-btn"><i class="fas fa-table"></i></div>
-                </div>
-            </div>
-
-            <div class="card-container bg-white shadow-sm" onclick="location.href='safety-main.html'">
-                <div class="h-64 bg-gray-200 overflow-hidden image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1590644365607-1c5a519a7a37?auto=format&fit=crop&w=500" class="w-full h-full object-cover" alt="Safety">
-                </div>
-                <div class="p-10 flex flex-col justify-between flex-grow content-wrapper">
-                    <h3 class="text-xl font-bold mb-10 text-gray-800">Safety Education<br><span class="text-sm font-normal text-gray-500">안전 교육 센터</span></h3>
-                    <div class="arrow-btn"><i class="fas fa-shield-alt"></i></div>
+                <div class="p-8 content-wrapper">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800">Location Guide</h3>
+                        <p class="text-sm text-gray-500 mt-1 font-medium">랙킹 위치 안내</p>
+                    </div>
+                    <div class="arrow-btn"><i class="fas fa-arrow-right"></i></div>
                 </div>
             </div>
 
-            <div class="card-container bg-black text-white shadow-sm border-2 border-black" onclick="location.href='old-vs-new.html'">
-                <div class="h-64 bg-gray-200 overflow-hidden image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=500" class="w-full h-full object-cover" alt="Old vs New">
+            <div class="card-container" onclick="window.open('YOUR_GOOGLE_SHEET_LINK', '_blank')">
+                <div class="icon-wrapper text-orange-500">
+                    <i class="fas fa-boxes"></i>
                 </div>
-                <div class="p-10 flex flex-col justify-between flex-grow content-wrapper">
-                    <h3 class="text-xl font-bold mb-10">Old vs New<br><span class="text-sm font-normal text-gray-400">신규/구형 비교</span></h3>
-                    <div class="arrow-btn bg-white text-black"><i class="fas fa-arrow-right"></i></div>
+                <div class="p-8 content-wrapper">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800">Stock Check</h3>
+                        <p class="text-sm text-gray-500 mt-1 font-medium">재고 확인 (Live)</p>
+                    </div>
+                    <div class="arrow-btn"><i class="fas fa-external-link-alt text-xs"></i></div>
+                </div>
+            </div>
+
+            <div class="card-container" onclick="location.href='safety-main.html'">
+                <div class="icon-wrapper text-teal-600">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <div class="p-8 content-wrapper">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800">Safety Center</h3>
+                        <p class="text-sm text-gray-500 mt-1 font-medium">안전 교육 센터</p>
+                    </div>
+                    <div class="arrow-btn"><i class="fas fa-arrow-right"></i></div>
+                </div>
+            </div>
+
+            <div class="card-container" onclick="location.href='old-vs-new.html'">
+                <div class="icon-wrapper text-gray-700">
+                    <i class="fas fa-columns"></i>
+                </div>
+                <div class="p-8 content-wrapper">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800">Old vs New</h3>
+                        <p class="text-sm text-gray-500 mt-1 font-medium">신규/구형 비교 자료</p>
+                    </div>
+                    <div class="arrow-btn"><i class="fas fa-arrow-right"></i></div>
                 </div>
             </div>
 
         </div>
     </section>
 
-    </body>
+    <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-60 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-sm w-full p-8 shadow-2xl transform transition-all scale-95 opacity-0" id="modalContent">
+            <h2 class="text-2xl font-bold mb-6 text-center text-gray-900">영상 버전을 선택하세요<br><span class="text-xs font-medium text-gray-400 uppercase tracking-widest">Select Viewport</span></h2>
+            <div class="flex flex-col gap-4">
+                <a href="https://www.youtube.com/playlist?list=PLn2hkf3EgnF3PQYhgiJzIymmjHNIgSLUG" target="_blank" onclick="closeVideoModal()" class="w-full py-4 bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold rounded-xl text-center transition-colors">🖥️ PC 버전 (가로)</a>
+                <a href="https://www.youtube.com/playlist?list=PLn2hkf3EgnF3mg96oXucuWJ1jWOnXZm77" target="_blank" onclick="closeVideoModal()" class="w-full py-4 bg-orange-50 hover:bg-orange-100 text-orange-700 font-bold rounded-xl text-center transition-colors">📱 모바일 버전 (세로)</a>
+                <button onclick="closeVideoModal()" class="mt-4 text-gray-400 hover:text-gray-600 text-sm font-medium">닫기 (Close)</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-16 text-center text-gray-400 text-sm">
+        <p>© 2026 STO 582 Racking Archive. Built for IKEA Specialists.</p>
+    </footer>
+
+    <script>
+        const modal = document.getElementById('videoModal');
+        const modalContent = document.getElementById('modalContent');
+
+        function openVideoModal() {
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeVideoModal() {
+            modalContent.classList.add('scale-95', 'opacity-0');
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 200);
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) closeVideoModal();
+        }
+    </script>
+
+</body>
 </html>
